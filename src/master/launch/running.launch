@@ -1,0 +1,10 @@
+<launch>
+    <!-- 开启机器人底层相关节点  -->
+    <include file="$(find scout_bringup)/launch/scout_minimal.launch" />
+    <!-- 开启激光雷达节点  -->
+    <include file="$(find scout_bringup)/launch/open_rslidar.launch" />
+    <!-- 开启导航节点  -->
+    <include file="$(find scout_bringup)/launch/navigation_4wd.launch" />
+    <!-- 开启主节点  -->
+    <node name="master" pkg="master" type="master.py" output="screen" />
+</launch>

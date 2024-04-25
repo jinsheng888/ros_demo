@@ -1,0 +1,7 @@
+<launch>
+
+    <node name="patrol" pkg="search" type="pub_multi_goals.py" output="screen">
+        <param name="config_path" value="$(find search)/config/goals.ini"/>
+        <param name="start_config_path" value="$(find search)/config/start_point.ini"/>
+    </node>
+</launch>

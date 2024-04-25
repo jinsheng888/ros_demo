@@ -1,0 +1,2 @@
+approaching:detect:line_follower:master:search:yolov5_ros:yolov5_ros_msgs
+-DCATKIN_DEVEL_PREFIX=/home/agilex/bot_temp/ws/devel -DCMAKE_INSTALL_PREFIX=/home/agilex/bot_temp/ws/install -G Unix Makefiles

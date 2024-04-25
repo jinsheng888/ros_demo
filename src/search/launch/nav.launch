@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+    <include file="$(find scout_bringup)/launch/open_rslidar.launch" />
+    <include file="$(find scout_bringup)/launch/scout_minimal.launch" />
+    <include file="$(find scout_bringup)/launch/navigation_4wd.launch" />
+</launch>

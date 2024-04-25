@@ -1,0 +1,8 @@
+<launch>
+  <!-- 开启机器人底层相关节点  -->
+  <include file="$(find scout_bringup)/launch/scout_minimal.launch" />
+  <!-- 开启RGB摄像头  -->
+  <include file="$(find robot_vision)/launch/usb_cam.launch" />
+  <!-- 开启巡线节点  -->
+  <node name='line_follower' pkg="line_follower" type="line_follow.py" output="screen"/>
+</launch>

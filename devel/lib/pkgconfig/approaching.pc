@@ -1,0 +1,8 @@
+prefix=/home/agilex/bot_temp/ws/devel
+
+Name: approaching
+Description: Description of approaching
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

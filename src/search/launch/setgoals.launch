@@ -1,0 +1,10 @@
+<launch>
+    <!-- 启动地图服务器 -->
+    <arg name="map_file" default="~/maps/1120cropped.yaml"/>
+    <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" /> -->
+
+    <!-- 启动set goals节点, 在rviz设置的导航目标点会被记录下来-->
+    <node name="set_goals" pkg="search" type="set_goals.py" output="screen">
+        <param name="config_path" value="$(find search)/config/start_point.ini"/>
+    </node>
+</launch>

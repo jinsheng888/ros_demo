@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+    <param name="ifdetected" value="False" />
+    <!-- 开启RGB摄像头  -->
+    <include file="$(find robot_vision)/launch/usb_cam.launch" />
+    <!-- 开启深度摄像头  -->
+    <include file="$(find astra_camera)/launch/dabai_u3.launch" />
+    <!-- 开启巡线节点  -->
+    <node name='line_follower' pkg="line_follower" type="line_follow.py" output="screen"/>
+    <!-- 开启yolov5节点  -->
+    <node pkg="detect" type="detect_yolov5.py" name="yolov5_ros" output="screen" respawn="true">
+        <param name="conf" value="0.8" />
+        <param name="weight_path" value="$(find detect)/weight/best_s.engine"/>
+    </node>
+    <!-- 开启巡逻节点  -->
+    <node name="patrol" pkg="search" type="pub_multi_goals.py" output="screen">
+        <param name="config_path" value="$(find search)/config/goals.ini"/>
+        <param name="start_config_path" value="$(find search)/config/start_point.ini"/>
+    </node>
+    <node pkg="approaching" type="approach.py" name="approaching" output="screen" />
+</launch>

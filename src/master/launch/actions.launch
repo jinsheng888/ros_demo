@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+    <!-- 开启巡线节点  -->
+    <node name='line_follower' pkg="line_follower" type="line_follow.py" respawn="true" output="screen"/>
+    <!-- 开启巡逻节点  -->
+    <node name="patrol" pkg="search" type="pub_multi_goals.py" respawn="true" output="screen">
+        <param name="config_path" value="$(find search)/config/goals.ini"/>
+        <param name="start_config_path" value="$(find search)/config/start_point.ini"/>
+    </node>
+    <!-- 开启靠近节点  -->
+    <node pkg="approaching" type="approach.py" name="approaching" respawn="true" output="screen" />
+    <!-- 开启机器人底层相关节点  -->
+    <include file="$(find scout_bringup)/launch/scout_minimal.launch"  />
+    <!-- 开启激光雷达节点  -->
+    <include file="$(find scout_bringup)/launch/open_rslidar.launch"  />
+    <!-- 开启导航节点  -->
+    <include file="$(find scout_bringup)/launch/navigation_4wd.launch" />
+</launch>

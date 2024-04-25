@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+  <!-- Start yolov5 and ros wrapper -->
+  <include file="$(find astra_camera)/launch/dabai_u3.launch" />
+  <node pkg="detect" type="detect_yolov5.py" name="yolov5_ros" output="screen" >
+    <param name="conf" value="0.8" />
+    <param name="weight_path" value="$(find detect)/weight/best_s.engine"/>
+  </node>
+
+</launch>

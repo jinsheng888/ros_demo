@@ -1,0 +1,8 @@
+prefix=/home/agilex/bot_temp/ws/devel
+
+Name: yolov5_ros_msgs
+Description: Description of yolov5_ros_msgs
+Version: 1.0.0
+Cflags: -I/home/agilex/bot_temp/ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: 
